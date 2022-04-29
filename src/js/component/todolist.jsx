@@ -1,8 +1,18 @@
 import React from "react";
+import { getToDos, createToDos } from "../api";
 
 export const TodoList = () => {
 	const [todos, setTodos] = React.useState([]);
 	const [task, setTask] = React.useState("");
+
+	React.useEffect = () => {
+		const fn = async () => {
+			const apiTodos = await getToDos();
+			setList(apiTodos.map((x) => x.label));
+			};
+			fn();
+			}, [];
+	
 
 	return (
 		<div>
